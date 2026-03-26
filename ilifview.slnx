@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ilifview/ilifview.csproj" />
+  <Project Path="test_assembly/test-assembly.csproj" />
+  <Project Path="test/test.csproj" />
+</Solution>
