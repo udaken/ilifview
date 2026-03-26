@@ -1,17 +1,17 @@
 # ilifview
 
-A CLI tool that reads the public API of .NET assemblies (.dll) and outputs type definitions and member information in a human-readable format.
-It uses `System.Reflection.MetadataLoadContext`, so it safely reads only metadata without executing the target assembly.
+.NET assembly (.dll) の公開 API を読み取り、型定義・メンバー情報を見やすい形式で出力する CLI ツールです。
+`System.Reflection.MetadataLoadContext` を使用しているため、対象アセンブリを実行せずにメタデータだけを安全に読み取ります。
 
 ## Features
 
-- Lists public types (class / struct / record / enum / interface / delegate)
-- Displays fields, properties, methods, constructors, events, and nested types
-- Resolves generic type parameters and constraints
-- Reflects nullable reference type annotations
-- Shows custom attributes (compiler-generated attributes are excluded)
-- 3 output formats: C#-style / JSON / YAML
-- `--type-only` mode to output only type declarations
+- 公開型（class / struct / record / enum / interface / delegate）の一覧表示
+- フィールド、プロパティ、メソッド、コンストラクタ、イベント、ネスト型の表示
+- ジェネリック型パラメータと制約の解析
+- Nullable 参照型アノテーションの反映
+- カスタム属性の表示（コンパイラ生成属性は除外）
+- 3 種類の出力フォーマット: C# 風 / JSON / YAML
+- `--type-only` による型宣言のみの出力
 
 ## Requirements
 
@@ -33,23 +33,23 @@ ilifview <DLL path> [options]
 
 | Option | Short | Description |
 |---|---|---|
-| `--format <format>` | `-f` | Output format: `csharp` (default), `json`, `yaml` |
-| `--output <file>` | `-o` | Output file path (defaults to stdout) |
-| `--type-only` | | Show only type declarations (omit members) |
+| `--format <format>` | `-f` | 出力フォーマット: `csharp`(default), `json`, `yaml` |
+| `--output <file>` | `-o` | 出力先ファイルパス（省略時は stdout） |
+| `--type-only` | | 型宣言のみ表示（メンバーを省略） |
 
 ### Examples
 
 ```bash
-# C#-style output (default)
+# C# 風に出力（デフォルト）
 ilifview MyLibrary.dll
 
-# JSON format, output to file
+# JSON 形式でファイルに出力
 ilifview MyLibrary.dll -f json -o api.json
 
-# Type declarations only
+# 型宣言のみ表示
 ilifview MyLibrary.dll --type-only
 
-# YAML format
+# YAML 形式
 ilifview MyLibrary.dll -f yaml
 ```
 

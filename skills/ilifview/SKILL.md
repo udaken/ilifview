@@ -22,13 +22,13 @@ the hood, so it's safe to run on untrusted assemblies.
 ## Tool location
 
 ```
-D:/Documents/Repos/ilifview/ilifview/bin/Debug/net10.0/ilifview.exe
+${CLAUDE_SKILL_DIR}/../../ilifview/bin/Debug/net10.0/ilifview.exe
 ```
 
 If the exe doesn't exist, build it first:
 
 ```bash
-dotnet build D:/Documents/Repos/ilifview/ilifview/ilifview.csproj -c Debug
+dotnet build ${CLAUDE_SKILL_DIR}/../../ilifview/ilifview.csproj -c Debug
 ```
 
 ## CLI usage
@@ -70,7 +70,7 @@ If the DLL hasn't been built yet, run `dotnet build` first.
 ### Step 2: Run ilifview
 
 ```bash
-"D:/Documents/Repos/ilifview/ilifview/bin/Debug/net10.0/ilifview.exe" "<DLL path>" -f csharp
+"${CLAUDE_SKILL_DIR}/../../ilifview/bin/Debug/net10.0/ilifview.exe" "<DLL path>" -f csharp
 ```
 
 Warnings about skipped types go to stderr — these are usually harmless (MLC limitations) and can
@@ -91,7 +91,7 @@ Adapt your presentation based on output size and user intent:
 When the user asks about a specific type or member, filter the output rather than dumping everything:
 
 ```bash
-"D:/Documents/Repos/ilifview/ilifview/bin/Debug/net10.0/ilifview.exe" "Foo.dll" | grep -A 20 "class TargetType"
+"${CLAUDE_SKILL_DIR}/../../ilifview/bin/Debug/net10.0/ilifview.exe" "Foo.dll" | grep -A 20 "class TargetType"
 ```
 
 ### Using the API for code generation
